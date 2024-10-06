@@ -1,0 +1,84 @@
+@ItemStorage_HostAddress = http://localhost:5202
+
+POST {{ItemStorage_HostAddress}}/Item/AddItems
+Content-Type: application/json
+
+[
+  {
+    "key": 1,
+    "value": "bob"
+  },
+  {
+    "key": 2,
+    "value": "alice"
+  }
+]
+
+###
+
+POST {{ItemStorage_HostAddress}}/Item/AddItems
+Content-Type: application/json
+
+[
+  {
+    "key": 2,
+    "value": "alice"
+  }
+]
+
+###
+
+POST {{ItemStorage_HostAddress}}/Item/GetItems
+Content-Type: application/json
+
+[
+  {
+    "PropertyName": "Value",
+    "DataFilterType": "Contains",
+    "Value": "alice"
+  } 
+]
+
+###
+
+POST {{ItemStorage_HostAddress}}/Item/GetItems
+Content-Type: application/json
+
+
+###
+
+POST {{ItemStorage_HostAddress}}/Item/GetItems
+Content-Type: application/json
+
+[
+  {
+    "PropertyName": "Value",
+    "DataFilterType": 0,
+    "Value": "alice"
+  },
+  {
+    "PropertyName": "Code",
+    "DataFilterType": "Equals",
+    "Value": 1
+  }
+]
+
+###
+
+POST {{ItemStorage_HostAddress}}/Item/GetItems
+Content-Type: application/json
+
+[
+  {
+    "PropertyName": "Value",
+    "DataFilterType": 0,
+    "Value": "alice"
+  },
+  {
+    "PropertyName": "Code",
+    "DataFilterType": "Equals",
+    "Value": 2
+  }
+]
+
+###
